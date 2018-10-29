@@ -1,9 +1,13 @@
+var guessLetterForm = document.getElementById('guess-letter-form');
 
 function tryButton() {
-
+    var elements = guessLetterForm.elements;
+    var letterInput = elements.guessLetterId;
+    //var anyLetter = letterInput.value;
+    console.log('guess');
 }
 
-var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft']
+var wordList = ['turtle', 'pants', 'mom', 'laptop', 'table', 'chair', 'warcraft', 'starcraft'];
 
 // address by index, i.e. document.getElementById('letter-' + i)
 
@@ -31,30 +35,22 @@ var guessLetterForm = document.getElementById('guess-letter-form');
 var firstLetter = document.getElementById('letter-0');
 
 function getRandomWord(words) {
-    var wordIndex = Math.floor(Math.random() * words.length)
+    var wordIndex = Math.floor(Math.random() * words.length);
     return words[wordIndex];
 }
 
 function startGame() {
     var word = getRandomWord(wordList);
-    var blanks = document.getElementById('blanks')
+    var blanks = document.getElementById('blanks');
     for(var i = 0; i < word.length; i++) {
-        var letter = document.createElement("div");
+        var letter = document.createElement('div');
         letter.className = 'letter';
         letter.textContent = '__';
         blanks.appendChild(letter);
     }
 }
 
-function checkGuessLetter() {
-    var elements = guessLetterForm.elements;
-    var guess = elements['guess-letter-id'].value;
-    firstLetter.textContent = guess;
 
-    console.log(guess);
-    // console.log('var direct line', document.getElementById('guessLetter').value);
-    resetGuessLetter();
-}
 
 
 
